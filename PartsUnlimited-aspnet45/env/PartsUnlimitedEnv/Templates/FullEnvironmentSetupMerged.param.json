@@ -3,37 +3,49 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "WebsiteName": {
-            "value": ""
+            "value": "",
+            "type" : "string"
         },
         "PartsUnlimitedServerName": {
-            "value": ""
+            "value": "",
+            "type" : "string"
         },
         "PartsUnlimitedHostingPlanName": {
-            "value": ""
+            "value": "",
+            "type" : "string"
         },
         "CdnStorageAccountName": {
-            "value": ""
+            "value": "",
+            "type" : "string"
         },
         "CdnStorageContainerName": {
-            "value": ""
+            "value": "",
+            "type" : "string"
         },
         "CdnStorageAccountNameForDev": {
-            "value": ""
+            "value": "",
+            "type" : "string"
         },
         "CdnStorageContainerNameForDev": {
-            "value": ""
+            "value": "",
+            "type" : "string"
         },
         "CdnStorageAccountNameForStaging": {
-            "value": ""
+            "value": "",
+            "type" : "string"
         },
         "CdnStorageContainerNameForStaging": {
-            "value": ""
+            "value": "",
+            "type" : "string"
+            
         },
         "PartsUnlimitedServerAdminLoginPassword": {
-            "value": ""
+            "value": "" ,
+            "type" : "string"
         },
         "PartsUnlimitedServerAdminLoginPasswordForTest": {
-            "value": ""
+            "value": "" ,
+            "type" : "string"
         }
     }
 }
