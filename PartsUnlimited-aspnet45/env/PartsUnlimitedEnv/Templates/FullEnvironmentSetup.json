@@ -1,5 +1,5 @@
 ﻿{
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "WebsiteName": {
@@ -77,15 +77,20 @@
         },
         "CdnStorageContainerNameForStaging": {
             "type": "string"
+        },
+        "_artifactsLocation": {
+            "type": "string"
+        },
+        "_artifactsLocationSasToken": {
+            "type": "securestring"
         }
     },
     "variables": {
-        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri)]",
-        "sqlServerAndDbTemplateFile": "PartsUnlimited.Environment/Templates/SqlServerAndDb.json",
-        "appInsightsTemplateFile": "PartsUnlimited.Environment/Templates/AppInsights.json",
-        "hostingPlanTemplateFile": "PartsUnlimited.Environment/Templates/HostingPlanAndRules.json",
-        "websiteTemplateFile": "PartsUnlimited.Environment/Templates/WebsiteWithTwoSlots.json",
-        "websiteRulesTemplateFile": "PartsUnlimited.Environment/Templates/WebsiteRules.json"
+        "sqlServerAndDbTemplateFile": "Templates/SqlServerAndDb.json",
+        "appInsightsTemplateFile": "Templates/AppInsights.json",
+        "hostingPlanTemplateFile": "Templates/HostingPlanAndRules.json",
+        "websiteTemplateFile": "Templates/WebsiteWithTwoSlots.json",
+        "websiteRulesTemplateFile": "Templates/WebsiteRules.json"
     },
     "resources": [
         {
@@ -95,7 +100,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(parameters('sharedTemplateUrl'), '/', variables('sqlServerAndDbTemplateFile'))]",
+                    "uri": "[concat(parameters('_artifactsLocation'), '/', variables('sqlServerAndDbTemplateFile'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -115,7 +120,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(parameters('sharedTemplateUrl'), '/', variables('sqlServerAndDbTemplateFile'))]",
+                    "uri": "[concat(parameters('_artifactsLocation'), '/', variables('sqlServerAndDbTemplateFile'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -135,7 +140,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(parameters('sharedTemplateUrl'), '/', variables('sqlServerAndDbTemplateFile'))]",
+                    "uri": "[concat(parameters('_artifactsLocation'), '/', variables('sqlServerAndDbTemplateFile'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -155,7 +160,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(parameters('sharedTemplateUrl'), '/', variables('appInsightsTemplateFile'))]",
+                    "uri": "[concat(parameters('_artifactsLocation'), '/', variables('appInsightsTemplateFile'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -170,7 +175,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(parameters('sharedTemplateUrl'), '/', variables('appInsightsTemplateFile'))]",
+                    "uri": "[concat(parameters('_artifactsLocation'), '/', variables('appInsightsTemplateFile'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -185,7 +190,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(parameters('sharedTemplateUrl'), '/', variables('appInsightsTemplateFile'))]",
+                    "uri": "[concat(parameters('_artifactsLocation'), '/', variables('appInsightsTemplateFile'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -200,7 +205,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(parameters('sharedTemplateUrl'), '/', variables('hostingPlanTemplateFile'))]",
+                    "uri": "[concat(parameters('_artifactsLocation'), '/', variables('hostingPlanTemplateFile'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -227,7 +232,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(parameters('sharedTemplateUrl'), '/', variables('websiteTemplateFile'))]",
+                    "uri": "[concat(parameters('_artifactsLocation'), '/', variables('websiteTemplateFile'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -252,7 +257,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat(parameters('sharedTemplateUrl'), '/', variables('websiteRulesTemplateFile'))]",
+                    "uri": "[concat(parameters('_artifactsLocation'), '/', variables('websiteRulesTemplateFile'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
